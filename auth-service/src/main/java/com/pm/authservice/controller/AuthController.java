@@ -38,4 +38,15 @@
             return ResponseEntity.ok(new LoginResponseDTO(token));
         }
 
+        @Operation(summary = "Validate Token")
+        @GetMapping("/validate")
+        public ResponseEntity<Void> validateToken(@RequestHeader("Authorization") String token) {
+            if (token == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            }
+            return authService.validateToken(token.substring(7))
+                    ? ResponseEntity.ok().build()
+                    : ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
     }
