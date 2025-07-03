@@ -25,6 +25,7 @@
         <module>integration-test</module>
         <module>infrastrcture</module>
         <module>infrastrcture</module>
+        <module>untitled</module>
     </modules>
     <scm>
         <connection/>
